@@ -1,4 +1,4 @@
-// function superFunzione() {
+// function superFunzione(){
 //     console.log('sto eseguendo il codice dentro il timeout');
 // }
 
@@ -6,35 +6,47 @@
 
 // const pluto = 2;
 
-// setTimeout(superFunzione, 20000);
+// // setTimeout(superFunzione, 5000);
+
+// setTimeout(() => {
+//     console.log('sto eseguendo il codice dentro il timeout');
+// }, 5000);
 
 // const paperino = pippo + pluto;
 
-// const topolino = 'Javascript'
+// const topolino = 'javascript'
 
 // console.log(topolino + paperino);
 
 // setInterval(() => {
-    
+//     console.log('sto eseguendo il codice dentro l\'interval');
 // }, 2000);
 
-// function gestisciRisposta(resp) {
-//     // return resp.text();
-//     resp.json()
-//     return;
+// function gestisciRisposta(resp){
+//     //return resp.text();
+//     console.log('response', resp);
+//     return resp.json();
 // }
 
-// function gestisciRisultatoFinale(res) {
-//     // const dittoObj = JSON.parse(res);
+// function gestisciRisultatoFinale(res){
+//     //const dittoObj = JSON.parse(res);
 //     // console.log(dittoObj);
 //     console.log(res);
 // }
 
-// fetch('https://pokeapi.co/api/v2/pokemon/ditto')
+// function gestisciEmergenza(error){
+//     console.log(error.message)
+// }
+
+
+// fetch('https://google00000000000000.it')
 // .then(gestisciRisposta)
 // .then(gestisciRisultatoFinale)
+// .catch(gestisciEmergenza);
+
 
 fetch('https://pokeapi.co/api/v2/pokemon/ditto')
 .then((resp) => resp.json())
-.then((res) => console.log(res))
+.then((res) => res.abilities)
+.then((ab) => console.log(ab))
 .catch((error) => console.log(error.message));
